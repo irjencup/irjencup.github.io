@@ -66,6 +66,39 @@ export default class ManageMatchView extends React.Component {
     this.setState({editedMatch: match})
   }
 
+  _deleteMatch(match){
+    Swal({
+      title: 'Yakin hapus pertandingan?',
+      text: match.team1.officialname + ' vs ' + match.team2.officialname,
+      showCancelButton: true,
+      closeOnConfirm: false,
+    }, ()=>{
+      // delete match
+      // TODO
+      console.log(match, 'MATCH');
+      if(match.scorer1 || match.scorer2){
+        Swal({
+          title: 'Hapus dulu semua gol!',
+          text: 'Sebelum menghapus pertandingan, hapus dulu semua pencetak gol',
+          type: 'error',
+        }, ()=>{
+        })
+        return false;
+      }
+
+      // trully delete
+      database.ref(firepath + '/matches/' + match.key).remove().then(()=>{
+        Swal({
+          title:'Berhasil Menghapus Pertandingan',
+          type: 'success'
+        }, ()=>{
+          this.getMatches()
+        })
+      })
+
+    })
+  }
+
   _onScoreUpdate(){
     this.getMatches();
   }
@@ -86,6 +119,9 @@ export default class ManageMatchView extends React.Component {
               <div className="row">
                 <div className="col-md-2">
                   <span className="btn btn-xs btn-success">{the_match.date}</span>
+                  {parseInt(the_match.status) == 2 ? <span className="btn btn-xs btn-info">selesai</span> : ''}
+                  {parseInt(the_match.status) == 1 ? <span className="btn btn-xs btn-info">berlangsung</span> : ''}
+
                 </div>
                 <div className="col-md-3" style={{textAlign: 'right'}}>
                   {the_match.team1.officialname}
@@ -103,7 +139,10 @@ export default class ManageMatchView extends React.Component {
                   {the_match.team2.officialname}
                 </div>
                 <div className="col-md-2" style={{textAlign: 'right'}}>
-                  <span onClick={this._editMatch.bind(this, the_match)} className="btn btn-xs btn-primary">edit skor</span>
+                  <span onClick={this._editMatch.bind(this, the_match)} className="btn btn-xs btn-primary">edit</span>
+                  <span
+                    onClick={this._deleteMatch.bind(this, the_match)}
+                    className="btn btn-xs btn-danger">x</span>
                 </div>
               </div>
               <EditScore

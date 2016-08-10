@@ -16,7 +16,8 @@ export default class AddTeams extends React.Component {
     }
   }
 
-  _submit(){
+  _submit(e){
+    e.preventDefault();
     this.setState({submitting: true})
     let model = {};
     for(var input in this.refs){
@@ -45,6 +46,7 @@ export default class AddTeams extends React.Component {
     return (<div>
           <div className="row">
               <div className="col-xs-4 col-md-push-4">
+                <form>
                 <input ref="nickname" placeholder="Team Nickname" type="text" className="form-control"/>
                 <br/>
                 <input ref="officialname" placeholder="Team Official Name" type="text" className="form-control"/>
@@ -58,6 +60,7 @@ export default class AddTeams extends React.Component {
                   onClick={this._submit.bind(this)}
                   disabled={this.state.submitting ? "disabled" : ""}
                   />
+              </form>
               </div>
           </div>
     </div>);

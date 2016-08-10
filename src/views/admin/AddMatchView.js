@@ -21,7 +21,9 @@ export default class AddMatchView extends React.Component {
         score2: 0,
         type: 'group',
         scorer1: null,
-        scorer2: null
+        scorer2: null,
+        status: 0 // 0 belum dimulai, 1 berlangsung, 2 selesai,
+
       }
     }
   }

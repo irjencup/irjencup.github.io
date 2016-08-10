@@ -33,6 +33,14 @@ export default class EditScore extends React.Component {
       break;
     }
 
+    if(player == null){
+      Swal({
+        type: 'error',
+        title: 'Pilih Pencetak Gol Dulu!'
+      })
+      return false;
+    }
+
     let { match } = this.props
     // let scorers = _.extend({}, the_scorers)
     let scorerKey = database.ref(firepath + '/matches/'+match.key + '/scorer'+ scoreFor).push(player.key).key;
@@ -63,6 +71,18 @@ export default class EditScore extends React.Component {
     this.props.onScoreUpdate()
   }
 
+  _onStatusChange(e){
+    let status = e.target.value;
+
+    // change match
+    let updates = {}
+        updates[firepath + '/matches/' + this.props.match.key + '/status'] = status;
+
+    database.ref().update(updates).then(()=>{
+      this.props.onScoreUpdate()
+    })
+  }
+
   render() {
     let { match, show } = this.props;
     return (<div style={show ? {display: 'block', overflow: 'hidden'} : {display: 'none'}}>
@@ -74,7 +94,13 @@ export default class EditScore extends React.Component {
         <div className="col-md-2">
           <button onClick={this._addGoal.bind(this, 'team1')} className="btn btn-primary btn-sm">Tambah Gol</button>
         </div>
-        <div className="col-md-2"></div>
+        <div className="col-md-2" style={{textAlign: 'center'}}>
+          <select defaultValue={match.status} onChange={this._onStatusChange.bind(this)}>
+            <option value={0}>belum dimulai</option>
+            <option value={1}>berlangsung</option>
+            <option value={2}>selesai</option>
+          </select>
+        </div>
         <div className="col-md-3">
           <PlayerList team={match.team2} onSelectPlayer={this._onSelectPlayer.bind(this, 'team2')} />
         </div>
@@ -95,7 +121,8 @@ export default class EditScore extends React.Component {
         </div>
         <div className="col-md-2">
         </div>
-        <div className="col-md-2"></div>
+        <div className="col-md-2">
+        </div>
         <div className="col-md-3">
           <ScorerList
             side={2}

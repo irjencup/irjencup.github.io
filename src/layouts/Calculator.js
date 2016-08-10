@@ -21,18 +21,17 @@ export default function CalculatorLayout({children}){
               <li className="dropdown">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Grup <span className="caret"></span></a>
                 <ul className="dropdown-menu">
-                  <li><a href="#">Grup A</a></li>
-                  <li><a href="#">Grup B</a></li>
+                  <li><a href="/#/grup/1">Grup A</a></li>
+                  <li><a href="/#/grup/2">Grup B</a></li>
                 </ul>
               </li>
               <li><a href="#"> Jadwal <span className="sr-only"></span></a></li>
 
-              <li><a href="#"> Top Skor <span className="sr-only"></span></a></li>
+              <li><a href="/#/top-skor"> Top Skor <span className="sr-only"></span></a></li>
 
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li><a href="/#/kelola/tim">Kelola Tim</a></li>
-              <li><a href="#">Kelola Pemain</a></li>
               <li><a href="/#/kelola/pertandingan">Kelola Pertandingan</a></li>
               <li className="dropdown">
                 <a href="#"

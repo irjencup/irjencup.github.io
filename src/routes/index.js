@@ -9,12 +9,16 @@ import AddTeamView from '../views/admin/AddTeamView'
 import AddTeamPlayerView from '../views/admin/AddTeamPlayerView'
 import ManageMatchView from '../views/admin/ManageMatchView'
 import AddMatchView from '../views/admin/AddMatchView'
+import TopScoreView from '../views/TopScoreView'
+import GroupRankView from '../views/GroupRankView'
 
 
 export default (
     <Route path="/" component={CalculatorLayout}>
         <IndexRoute component={HomeView} />
         <Route path="/about" component={AboutView} />
+        <Route path="/top-skor" component={TopScoreView} />
+        <Route path="/grup/:id" component={GroupRankView} />
 
 
         <Route path="/kelola/tim" component={ManageTeamView}/>
