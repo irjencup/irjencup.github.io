@@ -25,7 +25,7 @@ export default function CalculatorLayout({children}){
                   <li><a href="/#/grup/2">Grup B</a></li>
                 </ul>
               </li>
-              <li><a href="#"> Jadwal <span className="sr-only"></span></a></li>
+              <li><a href="/#/jadwal"> Jadwal <span className="sr-only"></span></a></li>
 
               <li><a href="/#/top-skor"> Top Skor <span className="sr-only"></span></a></li>
 

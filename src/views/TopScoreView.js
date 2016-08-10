@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import PageWrapper from './layouts/PageWrapper'
+import PageWrapperFront from './layouts/PageWrapperFront'
 
 export default class TopScore extends React.Component {
   constructor(props) {
@@ -45,7 +45,7 @@ export default class TopScore extends React.Component {
       return <div className="container"><Loading/></div>
     }
     return (<div>
-      <PageWrapper title="Top Skor">
+      <PageWrapperFront title="Top Skor">
         <div className="col-md-6 col-md-push-3">
         <table className="table-striped table table-bordered">
           <thead>
@@ -68,7 +68,7 @@ export default class TopScore extends React.Component {
           </tbody>
         </table>
         </div>
-      </PageWrapper>
+      </PageWrapperFront>
     </div>);
   }
 }

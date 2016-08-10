@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import { Link } from 'react-router'
 
-export default class PageWrapper extends React.Component {
+export default class PageWrapperFront extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -9,7 +9,7 @@ export default class PageWrapper extends React.Component {
   render() {
     let { children, title, rightButton } = this.props
     return (<div className="">
-      <div className="container page-wrapper">
+      <div className="container page-wrapper animated zoomIn">
         <h3>{title}
           <div style={{float: 'right'}}>
             {rightButton.map((button, index)=>{
@@ -26,9 +26,9 @@ export default class PageWrapper extends React.Component {
   }
 }
 
-PageWrapper.defaultProps = {
+PageWrapperFront.defaultProps = {
   rightButton: []
 }
 
-PageWrapper.propTypes = {
+PageWrapperFront.propTypes = {
 };

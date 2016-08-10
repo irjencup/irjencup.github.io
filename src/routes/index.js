@@ -9,8 +9,11 @@ import AddTeamView from '../views/admin/AddTeamView'
 import AddTeamPlayerView from '../views/admin/AddTeamPlayerView'
 import ManageMatchView from '../views/admin/ManageMatchView'
 import AddMatchView from '../views/admin/AddMatchView'
+import AddMatchOnStageView from '../views/admin/AddMatchOnStageView'
+
 import TopScoreView from '../views/TopScoreView'
 import GroupRankView from '../views/GroupRankView'
+import ScheduleView from '../views/ScheduleView'
 
 
 export default (
@@ -19,12 +22,13 @@ export default (
         <Route path="/about" component={AboutView} />
         <Route path="/top-skor" component={TopScoreView} />
         <Route path="/grup/:id" component={GroupRankView} />
-
+        <Route path="/jadwal" component={ScheduleView} />
 
         <Route path="/kelola/tim" component={ManageTeamView}/>
         <Route path="/kelola/tim/tambah" component={AddTeamView} />
         <Route path="/kelola/tim/:key/pemain" component={AddTeamPlayerView} />
         <Route path="/kelola/pertandingan" component={ManageMatchView}/>
         <Route path="/kelola/pertandingan/tambah" component={AddMatchView} />
+        <Route path="/kelola/pertandingan/stage/tambah" component={AddMatchOnStageView}/>
     </Route>
 )

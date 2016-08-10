@@ -6,13 +6,13 @@ import moment from 'moment-timezone'
 moment.locale('id')
 import { hashHistory } from 'react-router'
 
-export default class AddMatchView extends React.Component {
+export default class AddMatchOnStageView extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       teams: [],
-      selectedGroup: 1,
+      selectedStage: 1,
       model: {
         team1: null,
         team2: null,
@@ -33,10 +33,8 @@ export default class AddMatchView extends React.Component {
   }
 
   getTeams(){
-    let { selectedGroup } = this.state
-    database.ref(firepath + '/teams/').orderByChild('group')
-            .startAt(selectedGroup.toString())
-            .endAt(selectedGroup.toString())
+    let { selectedStage } = this.state
+    database.ref(firepath + '/teams/')
             .once('value',((snapshot)=>{
                 let teams = snapshot.val();
                 let teamList = []
@@ -48,8 +46,8 @@ export default class AddMatchView extends React.Component {
   }
 
   _onGroupChange(){
-    let selectedGroup = this.refs.group.value;
-    this.setState({selectedGroup: selectedGroup}, this.getTeams)
+    let selectedStage = this.refs.group.value;
+    this.setState({selectedStage: selectedStage})
   }
 
   _onDateChange(date){
@@ -76,6 +74,7 @@ export default class AddMatchView extends React.Component {
         return false;
       }
     }
+
     if(model.team1 == model.team2){
       Swal({
         title: 'Tim 1 dan Tim 2 tidak boleh sama!',
@@ -94,7 +93,7 @@ export default class AddMatchView extends React.Component {
 
   render() {
     return (<div>
-      <PageWrapper title="Tambah Pertandingan"
+      <PageWrapper title="Tambah Pertandingan Knockout"
         rightButton={[{label: 'Kembali', route: '/kelola/pertandingan'}]}
         >
       <div className="row">
@@ -103,12 +102,13 @@ export default class AddMatchView extends React.Component {
             <div className="row">
             <div className="col-md-5">
               <select
-                 ref="group"
+                 ref="stage"
                  onChange={this._onGroupChange.bind(this)} className="form-control"
-                 value={this.state.selectedGroup}
+                 value={this.state.selectedStage}
                  >
-                <option value="1"> Group A</option>
-                <option value="2"> Group B</option>
+                <option value="quarter"> Perempat Final </option>
+                <option value="semi"> Semi Final</option>
+                <option value="final"> Final</option>
               </select>
             </div>
             <div className="col-md-12">
@@ -158,5 +158,5 @@ export default class AddMatchView extends React.Component {
   }
 }
 
-AddMatchView.propTypes = {
+AddMatchOnStageView.propTypes = {
 };

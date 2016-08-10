@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import PageWrapper from './layouts/PageWrapper'
+import PageWrapperFront from './layouts/PageWrapperFront'
 
 export default class GroupRankView extends React.Component {
   constructor(props){
@@ -126,15 +126,17 @@ export default class GroupRankView extends React.Component {
       return <div className="container"><Loading></Loading></div>
     }
     return (<div>
-      <PageWrapper title="Group Rank">
+      <PageWrapperFront title="Group Rank">
         <div className="col-md-12">
           <table className="table table-striped table-bordered">
             <thead>
-              <tr>
+              <tr style={{background: 'purple', color: '#fff'}}>
                 <th style={{width: '30px', textAlign: 'right'}}>peringkat</th>
                 <th>team</th>
-                <th style={{textAlign: 'center'}}>poin</th>
-                <th style={{textAlign: 'center'}}>selisih gol</th>
+                <th style={{textAlign: 'center', background: 'red', color: '#fff'}}>poin</th>
+                <th style={{textAlign: 'center'}}>selisih</th>
+                <th>Gol</th>
+                <th>Bobol</th>
                 <th></th>
                 <th style={{textAlign: 'center'}}>main</th>
                 <th style={{textAlign: 'center'}}>menang</th>
@@ -144,22 +146,24 @@ export default class GroupRankView extends React.Component {
             </thead>
             <tbody>
               {teams.map((team, index)=>{
-                return <tr key={index}>
-                    <th style={{textAlign: 'right'}}>{index+1}</th>
-                    <th>{team.officialname}</th>
-                    <th style={{textAlign: 'center'}}>{team.points}</th>
-                    <th style={{textAlign: 'center'}}>{parseInt(team.goal) - parseInt(team.goaled)}</th>
-                    <th></th>
-                    <th style={{textAlign: 'center'}}>{team.play}</th>
-                    <th style={{textAlign: 'center'}}>{team.win}</th>
-                    <th style={{textAlign: 'center'}}>{team.draw}</th>
-                    <th style={{textAlign: 'center'}}>{team.lost}</th>
+                return <tr key={index} style={index < 4 ? {background: 'lightgreen'} :{}}>
+                    <td style={{textAlign: 'right'}}>{index+1}</td>
+                    <td>{team.officialname}</td>
+                    <td style={{textAlign: 'center'}}>{team.points}</td>
+                    <td style={{textAlign: 'center'}}>{parseInt(team.goal) - parseInt(team.goaled)}</td>
+                    <td style={{textAlign: 'center'}}>{team.goal}</td>
+                    <td style={{textAlign: 'center'}}>{team.goaled}</td>
+                    <td style={{background: 'purple'}}></td>
+                    <td style={{textAlign: 'center'}}>{team.play}</td>
+                    <td style={{textAlign: 'center'}}>{team.win}</td>
+                    <td style={{textAlign: 'center'}}>{team.draw}</td>
+                    <td style={{textAlign: 'center'}}>{team.lost}</td>
                 </tr>
               })}
             </tbody>
           </table>
         </div>
-      </PageWrapper>
+      </PageWrapperFront>
     </div>);
   }
 }

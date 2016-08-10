@@ -1,0 +1,46 @@
+body{
+  background: black url('assets/bg.jpg');
+  background-repeat: no-repeat;
+  height: 100%;
+  background-attachment: fixed;
+  background-size:cover;
+}
+h1,h2,h3,h4,h5,h6{
+  color: #000
+}
+.page-wrapper{
+  background: rgba(255, 255, 255, 0.8);
+  margin-top: -22px;
+  min-height: 90%;
+}
+
+.navbar{
+  border-bottom: 0.5px solid #fff
+}
+
+.table.table-bordered.table-striped{
+  background: transparent;
+  border: 1px solid black;
+}
+.table td, .table tr{
+  border: 1px solid black;
+}
+
+.table > thead > tr {
+  background: purple;
+  color: white;
+}
+
+.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
+    border: 1px solid #000;
+}
+
+ul.list-group li.list-group-item{
+  background: transparent;
+  font-weight: bold;
+  border: 1px solid #000;
+}
+
+hr{
+  border-color: #000 !important;
+}

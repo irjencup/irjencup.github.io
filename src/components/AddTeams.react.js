@@ -30,7 +30,7 @@ export default class AddTeams extends React.Component {
         title: 'Semua data harus diisi!',
         type: 'error'
       })
-
+      this.setState({submitting: false})
       return false;
     }
 
