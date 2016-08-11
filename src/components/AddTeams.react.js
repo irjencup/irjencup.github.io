@@ -47,7 +47,7 @@ export default class AddTeams extends React.Component {
           <div className="row">
               <div className="col-xs-4 col-md-push-4">
                 <form>
-                <input ref="nickname" placeholder="Team Nickname" type="text" className="form-control"/>
+                <input ref="nickname" placeholder="Team Nickname, tidak boleh ada spasi, huruf kecil" type="text" className="form-control"/>
                 <br/>
                 <input ref="officialname" placeholder="Team Official Name" type="text" className="form-control"/>
                 <br/>

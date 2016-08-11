@@ -46,6 +46,20 @@ export default class ManageTeamView extends React.Component {
     })
   }
 
+  getLogo(team){
+      return (
+        <div style={{
+            display: 'inline-block',
+            width: '32',
+            height: '32',
+            border: '1px solid #ccc',
+            marginBottom: '-12px', marginRight: '5px',
+            background: 'url('+team.logo_url+')',
+            backgroundSize: 'cover'
+          }}></div>
+      )
+  }
+
   render() {
     let { teams } = this.state
     if(this.state.loading){
@@ -68,12 +82,13 @@ export default class ManageTeamView extends React.Component {
           <ul className="list-group">
           {groupa.map((team, index)=>{
             return (<li className="list-group-item" key={index}>
+              {this.getLogo(team)}
               {team.officialname}
               <div style={{float: 'right'}}>
                 <Link to={`/kelola/tim/${team.key}/pemain`}>
                 <button
                   style={{marginRight: '5px'}}
-                  className="btn btn-xs btn-success">daftar pemain</button>
+                  className="btn btn-xs btn-success">kelola</button>
                 </Link>
                 <button
                   onClick={this._deleteTeam.bind(this, team)}
@@ -89,12 +104,13 @@ export default class ManageTeamView extends React.Component {
           <ul className="list-group">
           {groupb.map((team, index)=>{
             return <li className="list-group-item" key={index}>
+              {this.getLogo(team)}
               {team.officialname}
               <div style={{float: 'right'}}>
                 <Link to={`/kelola/tim/${team.key}/pemain`}>
                 <button
                   style={{marginRight: '5px'}}
-                  className="btn btn-xs btn-success">daftar pemain</button>
+                  className="btn btn-xs btn-success">kelola</button>
                 </Link>
                 <button
                   onClick={this._deleteTeam.bind(this, team)}

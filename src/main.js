@@ -19,6 +19,8 @@ let rootElement = document.getElementById('render')
 let firebase = require("firebase/app");
   require("firebase/auth");
   require("firebase/database");
+  require("firebase/storage");
+
 
 // Initialize Firebase
 var fireConfig = {
@@ -32,6 +34,7 @@ firebase.initializeApp(fireConfig);
 
 // Get a reference to the database service
 window.database = firebase.database();
+window.storageBase = firebase.storage();
 window.Swal = Swal;
 window._ = _
 window.config = config;

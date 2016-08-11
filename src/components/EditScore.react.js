@@ -32,6 +32,13 @@ export default class EditScore extends React.Component {
         scoreFor = 2
       break;
     }
+    if(parseInt(this.props.match.status) != 1){
+      Swal({
+        type: 'error',
+        title: 'Ganti status pertandingan menjadi berlangsung dulu!'
+      })
+      return false;
+    }
 
     if(player == null){
       Swal({

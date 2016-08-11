@@ -114,6 +114,9 @@ export default class GroupRankView extends React.Component {
       if (parseInt(a.goal) - parseInt(a.goaled) > parseInt(b.goal) - parseInt(b.goaled)) return -1
       if (parseInt(b.goal) - parseInt(b.goaled) > parseInt(a.goal) - parseInt(a.goaled)) return 1
 
+      if(parseInt(a.goal) > parseInt(b.goal)) return -1
+      if(parseInt(b.goal) > parseInt(a.goal)) return 1;
+
     })
 
     this.setState({teams: TeamsArray, loading: false})
@@ -128,15 +131,15 @@ export default class GroupRankView extends React.Component {
     return (<div>
       <PageWrapperFront title="Group Rank">
         <div className="col-md-12">
-          <table className="table table-striped table-bordered">
+          <table className="table table-bordered">
             <thead>
               <tr style={{background: 'purple', color: '#fff'}}>
                 <th style={{width: '30px', textAlign: 'right'}}>peringkat</th>
-                <th>team</th>
-                <th style={{textAlign: 'center', background: 'red', color: '#fff'}}>poin</th>
-                <th style={{textAlign: 'center'}}>selisih</th>
-                <th>Gol</th>
-                <th>Bobol</th>
+                <th style={{minWidth: '350px'}}>team</th>
+                <th style={{textAlign: 'center', background: 'green', color: '#fff'}}>poin</th>
+                <th style={{textAlign: 'center', background: '#2780E3'}}>selisih</th>
+                <th style={{background: 'orange'}}>gol</th>
+                <th>bobol</th>
                 <th></th>
                 <th style={{textAlign: 'center'}}>main</th>
                 <th style={{textAlign: 'center'}}>menang</th>
@@ -146,7 +149,7 @@ export default class GroupRankView extends React.Component {
             </thead>
             <tbody>
               {teams.map((team, index)=>{
-                return <tr key={index} style={index < 4 ? {background: 'lightgreen'} :{}}>
+                return <tr key={index} style={index < 4 ? {background: 'rgba(144, 238, 144, 0.5)'} :{}}>
                     <td style={{textAlign: 'right'}}>{index+1}</td>
                     <td>{team.officialname}</td>
                     <td style={{textAlign: 'center'}}>{team.points}</td>

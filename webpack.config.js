@@ -1,8 +1,8 @@
 module.exports = {
 
     entry: [
-        'webpack-dev-server/client?http://localhost:8000',
-        'webpack/hot/only-dev-server',
+        // 'webpack-dev-server/client?http://localhost:8000',
+        // 'webpack/hot/only-dev-server',
         './src/main.js'
     ],
 
@@ -17,12 +17,12 @@ module.exports = {
             {
                 test: /\.js$/ ,
                 exclude: /node_modules/,
-                loaders: ['react-hot','babel?presets[]=es2015,presets[]=react']
+                loaders: ['babel?presets[]=es2015,presets[]=react']
             },
             {
               test: /\.jsx$/ ,
               exclude: /node_modules/,
-              loaders: ['react-hot','babel?presets[]=es2015,presets[]=react']
+              loaders: ['babel?presets[]=es2015,presets[]=react']
             },
             {
               test: /\.css$/,

@@ -1,6 +1,8 @@
 import React, {PropTypes} from 'react';
 import PageWrapper from '../layouts/PageWrapper'
 import Loading from '../../components/Loading.react'
+import FileInput from 'react-file-input'
+import { findDOMNode } from 'react-dom'
 
 let initialModel = {
   name: '',
@@ -107,6 +109,43 @@ export default class AddTeamPlayerView extends React.Component {
     })
   }
 
+  _uploadFile(e){
+    let uploadTask = storageBase.ref('2016/logo/'+this.state.team.nickname+'.jpg').put(e.target.files[0])
+
+    uploadTask.on('state_changed', (snapshot)=>{
+      // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+       console.log('Upload is ' + progress + '% done');
+       switch (snapshot.state) {
+         case firebase.storage.TaskState.PAUSED: // or 'paused'
+           console.log('Upload is paused');
+           break;
+         case firebase.storage.TaskState.RUNNING: // or 'running'
+           console.log('Upload is running');
+           break;
+       }
+    }, (error)=>{
+
+    }, ()=>{
+      // success
+      let updates = {};
+          updates['/logo_url'] = uploadTask.snapshot.downloadURL;
+      database.ref(firepath + '/teams/' + this.props.params.key).update(updates).then(()=>{
+        this.getTeamData();
+        findDOMNode(e.targe).value = ''
+      })
+    })
+  }
+  getLogo(){
+    if(null == this.state.team.logo_url){
+      return <span>belum ada logo</span>
+    }
+
+    return (<div style={{paddingTop: '35px'}}>
+      <img style={{width: '150px'}} src={this.state.team.logo_url}/>
+    </div>)
+  }
+
   render() {
     let { team, pemainList } = this.state
     if(null == team ){
@@ -118,31 +157,41 @@ export default class AddTeamPlayerView extends React.Component {
         title="Kelola Pemain Tim"
         rightButton={[{label: 'kembali', route: '/kelola/tim'}]}
         >
-      <h2>{team.officialname}</h2>
-      <ul className="list-group">
-        {pemainList.map((pemain, index)=>{
-          return <li key={index} className="list-group-item" style={{overflow: 'hidden'}}>
-            <button className="btn btn-info btn-xs" style={{marginRight:'5px'}}>
-              {pemain.goal} gol
-            </button>
-            {pemain.name}
-            <div style={{float: 'right'}}>
-              <button onClick={this._editPlayer.bind(this, pemain)} className="btn btn-success btn-xs">edit nama</button>
-              <button onClick={this._deletePlayer.bind(this, pemain)} className="btn btn-danger btn-xs">x</button>
-            </div>
-          </li>
-        })}
-        <li className="list-group-item" style={{overflow: 'hidden'}}>
-          <form onSubmit={this._addPlayer.bind(this)}>
-            <input ref="name" placeholder="Nama pemain" type="text" className="form-control"/>
-            <br/>
-            <input type="submit" className="btn btn-sm btn-primary" value="tambah"
-              style={{float: 'right'}}
-              onClick={this._addPlayer.bind(this)}
-              />
-          </form>
-        </li>
-      </ul>
+      <div className="row">
+        <div className="col-md-3">
+          {this.getLogo()}
+          <br/>
+          <input type="file" onChange={this._uploadFile.bind(this)}/>
+        </div>
+        <div className="col-md-9">
+          <h2>{team.officialname}</h2>
+          <ul className="list-group">
+            {pemainList.map((pemain, index)=>{
+              return <li key={index} className="list-group-item" style={{overflow: 'hidden'}}>
+                <button className="btn btn-info btn-xs" style={{marginRight:'5px'}}>
+                  {pemain.goal} gol
+                </button>
+                {pemain.name}
+                <div style={{float: 'right'}}>
+                  <button onClick={this._editPlayer.bind(this, pemain)} className="btn btn-success btn-xs">edit nama</button>
+                  <button onClick={this._deletePlayer.bind(this, pemain)} className="btn btn-danger btn-xs">x</button>
+                </div>
+              </li>
+            })}
+            <li className="list-group-item" style={{overflow: 'hidden'}}>
+              <form onSubmit={this._addPlayer.bind(this)}>
+                <input ref="name" placeholder="Nama pemain" type="text" className="form-control"/>
+                <br/>
+                <input type="submit" className="btn btn-sm btn-primary" value="tambah"
+                  style={{float: 'right'}}
+                  onClick={this._addPlayer.bind(this)}
+                  />
+              </form>
+            </li>
+          </ul>
+
+        </div>
+      </div>
 
 
 

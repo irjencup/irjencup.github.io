@@ -161,7 +161,7 @@ export default class ScheduleView extends React.Component {
       case 'semifinal':
         title = 'Semi Final'
         break;
-      case 'final':
+      case 'finalmatch':
         title = 'Final';
         break;
       default:
