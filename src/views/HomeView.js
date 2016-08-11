@@ -18,6 +18,12 @@ class HomeView extends Component{
     render(){
         let { currentUser } = this.props
         return (<div>
+          <div className="container">
+            <div className="col-md-12" style={{textAlign: 'center', color: '#fff', background: 'rgba(0,0,0,0.7)', marginTop: '100px'}}>
+              <h1 style={{color: '#fff'}}>SELAMAT DATANG DI</h1>
+              <h1 style={{color: '#fff', fontWeight: 'bold', fontSize: '80px'}}>IRJENCUP 2016</h1>
+            </div>
+          </div>
         </div>)
     }
 }

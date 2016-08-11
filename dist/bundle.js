@@ -28317,7 +28317,28 @@
 	        value: function render() {
 	            var currentUser = this.props.currentUser;
 
-	            return _react2.default.createElement('div', null);
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'container' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-md-12', style: { textAlign: 'center', color: '#fff', background: 'rgba(0,0,0,0.7)', marginTop: '100px' } },
+	                        _react2.default.createElement(
+	                            'h1',
+	                            { style: { color: '#fff' } },
+	                            'SELAMAT DATANG DI'
+	                        ),
+	                        _react2.default.createElement(
+	                            'h1',
+	                            { style: { color: '#fff', fontWeight: 'bold', fontSize: '80px' } },
+	                            'IRJENCUP 2016'
+	                        )
+	                    )
+	                )
+	            );
 	        }
 	    }]);
 
