@@ -27909,28 +27909,7 @@
 	              )
 	            )
 	          ),
-	          _react2.default.createElement(
-	            'ul',
-	            { className: 'nav navbar-nav navbar-right' },
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              _react2.default.createElement(
-	                'a',
-	                { href: '#/kelola/tim' },
-	                'Kelola Tim'
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              _react2.default.createElement(
-	                'a',
-	                { href: '#/kelola/pertandingan' },
-	                'Kelola Pertandingan'
-	              )
-	            )
-	          )
+	          _react2.default.createElement('ul', { className: 'nav navbar-nav navbar-right' })
 	        )
 	      )
 	    ),
