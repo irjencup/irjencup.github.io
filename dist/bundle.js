@@ -59637,6 +59637,9 @@
 	            return b.goal - a.goal;
 	          });
 	          console.log(PlayersArray, 'PLAYERS ARRAY');
+	          PlayersArray = PlayersArray.filter(function (item, index) {
+	            return item.name.toLowerCase().indexOf('own goal') < 0;
+	          });
 	          _this2.setState({ scorers: PlayersArray, loading: false });
 	        });
 	      });
@@ -59677,6 +59680,11 @@
 	                  _react2.default.createElement(
 	                    'th',
 	                    null,
+	                    'Tim'
+	                  ),
+	                  _react2.default.createElement(
+	                    'th',
+	                    null,
 	                    'Pemain'
 	                  ),
 	                  _react2.default.createElement(
@@ -59697,6 +59705,11 @@
 	                      'th',
 	                      null,
 	                      index + 1
+	                    ),
+	                    _react2.default.createElement(
+	                      'th',
+	                      null,
+	                      _react2.default.createElement('img', { src: scorer.team.logo_url, width: '42px' })
 	                    ),
 	                    _react2.default.createElement(
 	                      'th',
@@ -60003,8 +60016,13 @@
 	                  ),
 	                  _react2.default.createElement(
 	                    'th',
+	                    null,
+	                    'logo'
+	                  ),
+	                  _react2.default.createElement(
+	                    'th',
 	                    { style: { minWidth: '350px' } },
-	                    'team'
+	                    'tim'
 	                  ),
 	                  _react2.default.createElement(
 	                    'th',
@@ -60060,6 +60078,11 @@
 	                      'td',
 	                      { style: { textAlign: 'right' } },
 	                      index + 1
+	                    ),
+	                    _react2.default.createElement(
+	                      'td',
+	                      null,
+	                      _react2.default.createElement('img', { src: team.logo_url, width: '42px' })
 	                    ),
 	                    _react2.default.createElement(
 	                      'td',
@@ -60438,7 +60461,9 @@
 	                  _react2.default.createElement(
 	                    'div',
 	                    { className: 'col-md-3', style: { textAlign: 'right' } },
-	                    the_match.team1.officialname
+	                    the_match.team1.officialname,
+	                    ' ',
+	                    _react2.default.createElement('img', { src: the_match.team1.logo_url, width: '42px' })
 	                  ),
 	                  _react2.default.createElement(
 	                    'div',
@@ -60462,6 +60487,8 @@
 	                  _react2.default.createElement(
 	                    'div',
 	                    { className: 'col-md-3' },
+	                    _react2.default.createElement('img', { src: the_match.team2.logo_url, width: '42px' }),
+	                    ' ',
 	                    the_match.team2.officialname
 	                  ),
 	                  _react2.default.createElement(

@@ -204,7 +204,7 @@ export default class ScheduleView extends React.Component {
 
                 </div>
                 <div className="col-md-3" style={{textAlign: 'right'}}>
-                  {the_match.team1.officialname}
+                  {the_match.team1.officialname} <img src={the_match.team1.logo_url} width="42px"/>
                 </div>
                 <div className="col-md-2" style={{textAlign: 'center'}}>
                   <span
@@ -216,7 +216,7 @@ export default class ScheduleView extends React.Component {
                     className="btn btn-sm btn-info">{the_match.score2}</span>
                 </div>
                 <div className="col-md-3">
-                  {the_match.team2.officialname}
+                  <img src={the_match.team2.logo_url} width="42px"/> {the_match.team2.officialname}
                 </div>
                 <div className="col-md-2" style={{textAlign: 'right'}}>
                   <span onClick={this._editMatch.bind(this, the_match)} className="btn btn-xs btn-primary">detail</span>

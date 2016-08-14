@@ -135,7 +135,8 @@ export default class GroupRankView extends React.Component {
             <thead>
               <tr style={{background: 'purple', color: '#fff'}}>
                 <th style={{width: '30px', textAlign: 'right'}}>peringkat</th>
-                <th style={{minWidth: '350px'}}>team</th>
+                <th>logo</th>
+                <th style={{minWidth: '350px'}}>tim</th>
                 <th style={{textAlign: 'center', background: 'green', color: '#fff'}}>poin</th>
                 <th style={{textAlign: 'center', background: '#2780E3'}}>selisih</th>
                 <th style={{background: 'orange'}}>gol</th>
@@ -151,6 +152,7 @@ export default class GroupRankView extends React.Component {
               {teams.map((team, index)=>{
                 return <tr key={index} style={index < 4 ? {background: 'rgba(144, 238, 144, 0.5)'} :{}}>
                     <td style={{textAlign: 'right'}}>{index+1}</td>
+                    <td><img src={team.logo_url} width="42px"/></td>
                     <td>{team.officialname}</td>
                     <td style={{textAlign: 'center'}}>{team.points}</td>
                     <td style={{textAlign: 'center'}}>{parseInt(team.goal) - parseInt(team.goaled)}</td>
