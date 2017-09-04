@@ -39,10 +39,10 @@ export default function CalculatorLayout({children}){
                   </a>
                   <ul className="dropdown-menu">
                     <li>
-                      <a href="../year-2016">2016</a>
+                      <a href="../2016">2016</a>
                     </li>
                     <li>
-                      <a href="../year-2017">2017</a>
+                      <a href="../2017">2017</a>
                     </li>
                   </ul>
                 </li>
