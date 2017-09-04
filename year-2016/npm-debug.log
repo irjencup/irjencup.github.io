@@ -1,0 +1,66 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'firebase-tools' ]
+2 info using npm@3.8.6
+3 info using node@v4.3.1
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData firebase-tools
+8 silly fetchNamedPackageData firebase-tools
+9 silly mapToRegistry name firebase-tools
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'firebase-tools',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   name: 'firebase-tools',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/firebase-tools
+14 verbose request uri https://registry.npmjs.org/firebase-tools
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 4:30:09 PM
+17 verbose request using bearer token for auth
+18 verbose request id 34d2eee5a135e96c
+19 http request GET https://registry.npmjs.org/firebase-tools
+20 info retry will retry, error on last attempt: Error: read ECONNRESET
+21 info attempt registry request try #2 at 4:30:19 PM
+22 verbose request using bearer token for auth
+23 http request GET https://registry.npmjs.org/firebase-tools
+24 info retry will retry, error on last attempt: Error: read ECONNRESET
+25 info attempt registry request try #3 at 4:31:20 PM
+26 verbose request using bearer token for auth
+27 http request GET https://registry.npmjs.org/firebase-tools
+28 silly fetchPackageMetaData Error: read ECONNRESET
+28 silly fetchPackageMetaData     at exports._errnoException (util.js:870:11)
+28 silly fetchPackageMetaData     at TLSWrap.onread (net.js:544:26)
+28 silly fetchPackageMetaData  error for firebase-tools { [Error: read ECONNRESET] code: 'ECONNRESET', errno: 'ECONNRESET', syscall: 'read' }
+29 silly rollbackFailedOptional Starting
+30 silly rollbackFailedOptional Finishing
+31 silly runTopLevelLifecycles Starting
+32 silly runTopLevelLifecycles Finishing
+33 silly install printInstalled
+34 verbose stack Error: read ECONNRESET
+34 verbose stack     at exports._errnoException (util.js:870:11)
+34 verbose stack     at TLSWrap.onread (net.js:544:26)
+35 verbose cwd /Users/azamuddin/Development/kantor/ijcup2016
+36 error Darwin 15.5.0
+37 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-g" "firebase-tools"
+38 error node v4.3.1
+39 error npm  v3.8.6
+40 error code ECONNRESET
+41 error errno ECONNRESET
+42 error syscall read
+43 error network read ECONNRESET
+44 error network This is most likely not a problem with npm itself
+44 error network and is related to network connectivity.
+44 error network In most cases you are behind a proxy or have bad network settings.
+44 error network
+44 error network If you are behind a proxy, please make sure that the
+44 error network 'proxy' config is set properly.  See: 'npm help config'
+45 verbose exit [ 1, true ]
