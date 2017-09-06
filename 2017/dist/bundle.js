@@ -29129,16 +29129,25 @@
 	        'div',
 	        { className: 'container navbar-inner' },
 	        _react2.default.createElement(
-	          'button',
-	          { type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1', 'aria-expanded': 'false' },
+	          'div',
+	          { className: 'navbar-header' },
 	          _react2.default.createElement(
-	            'span',
-	            { className: 'sr-only' },
-	            'Toggle navigation'
+	            'button',
+	            { type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1', 'aria-expanded': 'false' },
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'sr-only' },
+	              'Toggle navigation'
+	            ),
+	            _react2.default.createElement('span', { className: 'icon-bar' }),
+	            _react2.default.createElement('span', { className: 'icon-bar' }),
+	            _react2.default.createElement('span', { className: 'icon-bar' })
 	          ),
-	          _react2.default.createElement('span', { className: 'icon-bar' }),
-	          _react2.default.createElement('span', { className: 'icon-bar' }),
-	          _react2.default.createElement('span', { className: 'icon-bar' })
+	          _react2.default.createElement(
+	            'a',
+	            { className: 'navbar-brand', href: '#' },
+	            'IJCUP2017'
+	          )
 	        ),
 	        _react2.default.createElement(
 	          'div',
