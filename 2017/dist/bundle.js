@@ -62820,7 +62820,7 @@
 	            { className: 'col-md-12' },
 	            _react2.default.createElement(
 	              'table',
-	              { className: 'table table-bordered' },
+	              { className: 'table table-bordered', style: { background: "rgba(0,0,0,0.5)", border: "0px", color: "#fff" } },
 	              _react2.default.createElement(
 	                'thead',
 	                null,

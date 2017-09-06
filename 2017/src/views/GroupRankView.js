@@ -139,7 +139,7 @@ export default class GroupRankView extends React.Component {
               <RankIcon /> klasemen
             </div>}>
           <div className="col-md-12">
-            <table className="table table-bordered">
+            <table className="table table-bordered" style={{background: "rgba(0,0,0,0.5)", border: "0px", color: "#fff"}}>
               <thead>
                 <tr style={{ background: "rgba(0,0,0,0.5)", color: "#fff" }}>
                   <th style={{ width: "30px", textAlign: "right" }}>
