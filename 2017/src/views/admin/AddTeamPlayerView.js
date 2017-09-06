@@ -8,6 +8,7 @@ import config from "../../app.config";
 const PASSWORD = config.PASSWORD;
 const PASSWORD_KEY = config.PASSWORD_KEY;
 const firepath = config.firepath
+import firebase from 'firebase'
 
 
 let initialModel = {
@@ -158,7 +159,7 @@ export default class AddTeamPlayerView extends React.Component {
   }
 
   _uploadFile(e){
-    let uploadTask = storageBase.ref + (firepath + '/logo/'+this.state.team.nickname+'.jpg').put(e.target.files[0])
+    let uploadTask = storageBase.ref(firepath + '/logo/'+this.state.team.nickname+'.jpg').put(e.target.files[0])
 
     uploadTask.on('state_changed', (snapshot)=>{
       // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
@@ -177,10 +178,10 @@ export default class AddTeamPlayerView extends React.Component {
     }, ()=>{
       // success
       let updates = {};
-          updates[firepath + '/logo_url'] = uploadTask.snapshot.downloadURL;
+          updates['/logo_url'] = uploadTask.snapshot.downloadURL;
       database.ref(firepath + '/teams/' + this.props.params.key).update(updates).then(()=>{
         this.getTeamData();
-        findDOMNode(e.targe).value = ''
+        // findDOMNode(e.target).value = ''
       })
     })
   }

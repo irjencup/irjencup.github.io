@@ -14,25 +14,25 @@ module.exports = {
         publicPath: 'http://localhost:2017/static'
     },
 
-    plugins: [
-      new webpack.NoErrorsPlugin(),
-      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-      new webpack.DefinePlugin({
-         'process.env': {
-             // This has effect on the react lib size
-             'NODE_ENV': JSON.stringify('production'),
-         }
-      }),
-      new webpack.optimize.UglifyJsPlugin(),
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false
-        },
-        sourceMap: false
-      }),
-      new webpack.optimize.OccurrenceOrderPlugin(),
-      new webpack.optimize.DedupePlugin()
-    ],
+    // plugins: [
+    //   new webpack.NoErrorsPlugin(),
+    //   new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    //   new webpack.DefinePlugin({
+    //      'process.env': {
+    //          // This has effect on the react lib size
+    //          'NODE_ENV': JSON.stringify('production'),
+    //      }
+    //   }),
+    //   new webpack.optimize.UglifyJsPlugin(),
+    //   new webpack.optimize.UglifyJsPlugin({
+    //     compress: {
+    //       warnings: false
+    //     },
+    //     sourceMap: false
+    //   }),
+    //   new webpack.optimize.OccurrenceOrderPlugin(),
+    //   new webpack.optimize.DedupePlugin()
+    // ],
 
     module: {
         loaders: [
