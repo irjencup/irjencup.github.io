@@ -51,6 +51,7 @@ export default class TopScore extends React.Component {
           <thead>
             <tr>
               <th style={{width: '40px'}}>No</th>
+              <th style={{width: '65px'}}>Tim</th>
               <th>Pemain</th>
               <th style={{width: '50px'}}>Gol</th>
             </tr>
@@ -59,6 +60,7 @@ export default class TopScore extends React.Component {
             {this.state.scorers.map((scorer, index)=>{
               return <tr key={index}>
                 <th>{index + 1}</th>
+                <th><img src={scorer.team.logo_url} width="42px"/></th>
                 <th>
                   {scorer.name} ({scorer.team.officialname})
                 </th>

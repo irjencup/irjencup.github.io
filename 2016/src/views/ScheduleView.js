@@ -201,7 +201,6 @@ export default class ScheduleView extends React.Component {
                   <span className="btn btn-xs btn-success">{the_match.date}</span>
                   {parseInt(the_match.status) == 2 ? <span className="btn btn-xs btn-info">selesai</span> : ''}
                   {parseInt(the_match.status) == 1 ? <span className="btn btn-xs btn-info">berlangsung</span> : ''}
-
                 </div>
                 <div className="col-md-3" style={{textAlign: 'right'}}>
                   {the_match.team1.officialname} <img src={the_match.team1.logo_url} width="42px"/>

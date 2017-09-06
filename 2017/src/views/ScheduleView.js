@@ -195,39 +195,57 @@ export default class ScheduleView extends React.Component {
         <h2>{this.showTitle()}</h2>
         <ul className="list-group">
           {this.state[this.state.match_type].map((the_match, index)=>{
-            return <li className="list-group-item" key={index} style={{marginBottom: '10px'}}>
-              <div className="row">
-                <div className="col-md-2">
-                  <span className="btn btn-xs btn-success">{the_match.date}</span>
-                  {parseInt(the_match.status) == 2 ? <span className="btn btn-xs btn-info">selesai</span> : ''}
-                  {parseInt(the_match.status) == 1 ? <span className="btn btn-xs btn-info">berlangsung</span> : ''}
-
+            return <li className="list-group-item" key={index} style={{ border: "0px", color: "#fff", marginBottom: "10px", background: "rgba(0,0,0,0.5)" }}>
+                <div className="row">
+                  <div className="col-xs-5" style={{textAlign: "right"}}>
+                    <img src={the_match.team1.logo_url} alt="logo_tim" width="45px" />
+                  </div>
+                  <div className="col-xs-2" />
+                  <div className="col-xs-5" style={{textAlign: "left"}}>
+                    <img src={the_match.team2.logo_url} alt="logo_tim" width="45px" />
+                  </div>
                 </div>
-                <div className="col-md-3" style={{textAlign: 'right'}}>
-                  {the_match.team1.officialname}
+                <br/>
+                <div className="row">
+                  <div className="col-xs-5 col-xs-5" style={{ textAlign: "right" }}>
+                    <div className="col-xs-8 col-md-10">
+                      {the_match.team1.officialname}
+                    </div>
+                    <div className="col-xs-2 btn btn-sm btn-info">
+                      {the_match.score1}
+                    </div>
+                  </div>
+                  <div className="col-xs-2 col-md-2" style={{ textAlign: "center" }}>
+                    vs
+                  </div>
+                  <div className="col-xs-5 col-md-5" style={{ textAlign: "left" }}>
+                    <div className="col-xs-2 btn btn-sm btn-info">
+                      {the_match.score2}
+                    </div>
+                    <div className="col-xs-8 col-md-10">
+                      {the_match.team2.officialname}
+                    </div>
+                  </div>
                 </div>
-                <div className="col-md-2" style={{textAlign: 'center'}}>
-                  <span
-                    style={{marginRight: '4px'}}
-                     className="btn btn-sm btn-info">{the_match.score1}</span>
-                   vs
-                  <span
-                    style={{marginLeft: '4px'}}
-                    className="btn btn-sm btn-info">{the_match.score2}</span>
+                <br />
+                <div className="row">
+                  <div className="col-xs-12">
+                    <span className="btn btn-xs btn-success">
+                      {the_match.date}
+                    </span>
+                    {parseInt(the_match.status) == 2 ? <span className="btn btn-xs btn-info">
+                        selesai
+                      </span> : ""}
+                    {parseInt(the_match.status) == 1 ? <span className="btn btn-xs btn-info">
+                        sedang berlangsung
+                      </span> : ""}
+                    <span style={{ float: "right" }} onClick={this._editMatch.bind(this, the_match)} className="btn btn-xs btn-primary">
+                      lihat scorer
+                    </span>
+                  </div>
                 </div>
-                <div className="col-md-3">
-                  {the_match.team2.officialname}
-                </div>
-                <div className="col-md-2" style={{textAlign: 'right'}}>
-                  <span onClick={this._editMatch.bind(this, the_match)} className="btn btn-xs btn-primary">detail</span>
-                </div>
-              </div>
-              <EditScoreViewOnly
-                show={this.state.editedMatch.key == the_match.key}
-                match={the_match}
-                onScoreUpdate={this._onScoreUpdate.bind(this)}
-                />
-            </li>
+                <EditScoreViewOnly show={this.state.editedMatch.key == the_match.key} match={the_match} onScoreUpdate={this._onScoreUpdate.bind(this)} />
+              </li>;
           })}
         </ul>
 

@@ -62463,6 +62463,11 @@
 	                  ),
 	                  _react2.default.createElement(
 	                    'th',
+	                    { style: { width: '65px' } },
+	                    'Tim'
+	                  ),
+	                  _react2.default.createElement(
+	                    'th',
 	                    null,
 	                    'Pemain'
 	                  ),
@@ -62484,6 +62489,11 @@
 	                      'th',
 	                      null,
 	                      index + 1
+	                    ),
+	                    _react2.default.createElement(
+	                      'th',
+	                      null,
+	                      _react2.default.createElement('img', { src: scorer.team.logo_url, width: '42px' })
 	                    ),
 	                    _react2.default.createElement(
 	                      'th',
@@ -64164,13 +64174,67 @@
 	            this.state[this.state.match_type].map(function (the_match, index) {
 	              return _react2.default.createElement(
 	                'li',
-	                { className: 'list-group-item', key: index, style: { marginBottom: '10px' } },
+	                { className: 'list-group-item', key: index, style: { border: "0px", color: "#fff", marginBottom: "10px", background: "rgba(0,0,0,0.5)" } },
 	                _react2.default.createElement(
 	                  'div',
 	                  { className: 'row' },
 	                  _react2.default.createElement(
 	                    'div',
-	                    { className: 'col-md-2' },
+	                    { className: 'col-xs-5', style: { textAlign: "right" } },
+	                    _react2.default.createElement('img', { src: the_match.team1.logo_url, alt: 'logo_tim', width: '45px' })
+	                  ),
+	                  _react2.default.createElement('div', { className: 'col-xs-2' }),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-xs-5', style: { textAlign: "left" } },
+	                    _react2.default.createElement('img', { src: the_match.team2.logo_url, alt: 'logo_tim', width: '45px' })
+	                  )
+	                ),
+	                _react2.default.createElement('br', null),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'row' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-xs-5 col-xs-5', style: { textAlign: "right" } },
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'col-xs-8 col-md-10' },
+	                      the_match.team1.officialname
+	                    ),
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'col-xs-2 btn btn-sm btn-info' },
+	                      the_match.score1
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-xs-2 col-md-2', style: { textAlign: "center" } },
+	                    'vs'
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-xs-5 col-md-5', style: { textAlign: "left" } },
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'col-xs-2 btn btn-sm btn-info' },
+	                      the_match.score2
+	                    ),
+	                    _react2.default.createElement(
+	                      'div',
+	                      { className: 'col-xs-8 col-md-10' },
+	                      the_match.team2.officialname
+	                    )
+	                  )
+	                ),
+	                _react2.default.createElement('br', null),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'row' },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-xs-12' },
 	                    _react2.default.createElement(
 	                      'span',
 	                      { className: 'btn btn-xs btn-success' },
@@ -64180,57 +64244,20 @@
 	                      'span',
 	                      { className: 'btn btn-xs btn-info' },
 	                      'selesai'
-	                    ) : '',
+	                    ) : "",
 	                    parseInt(the_match.status) == 1 ? _react2.default.createElement(
 	                      'span',
 	                      { className: 'btn btn-xs btn-info' },
-	                      'berlangsung'
-	                    ) : ''
-	                  ),
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'col-md-3', style: { textAlign: 'right' } },
-	                    the_match.team1.officialname
-	                  ),
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'col-md-2', style: { textAlign: 'center' } },
+	                      'sedang berlangsung'
+	                    ) : "",
 	                    _react2.default.createElement(
 	                      'span',
-	                      {
-	                        style: { marginRight: '4px' },
-	                        className: 'btn btn-sm btn-info' },
-	                      the_match.score1
-	                    ),
-	                    'vs',
-	                    _react2.default.createElement(
-	                      'span',
-	                      {
-	                        style: { marginLeft: '4px' },
-	                        className: 'btn btn-sm btn-info' },
-	                      the_match.score2
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'col-md-3' },
-	                    the_match.team2.officialname
-	                  ),
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'col-md-2', style: { textAlign: 'right' } },
-	                    _react2.default.createElement(
-	                      'span',
-	                      { onClick: _this5._editMatch.bind(_this5, the_match), className: 'btn btn-xs btn-primary' },
-	                      'detail'
+	                      { style: { float: "right" }, onClick: _this5._editMatch.bind(_this5, the_match), className: 'btn btn-xs btn-primary' },
+	                      'lihat scorer'
 	                    )
 	                  )
 	                ),
-	                _react2.default.createElement(_EditScoreViewOnly2.default, {
-	                  show: _this5.state.editedMatch.key == the_match.key,
-	                  match: the_match,
-	                  onScoreUpdate: _this5._onScoreUpdate.bind(_this5)
-	                })
+	                _react2.default.createElement(_EditScoreViewOnly2.default, { show: _this5.state.editedMatch.key == the_match.key, match: the_match, onScoreUpdate: _this5._onScoreUpdate.bind(_this5) })
 	              );
 	            })
 	          )
