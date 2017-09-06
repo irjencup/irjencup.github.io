@@ -62649,6 +62649,10 @@
 
 	var _mehO2 = _interopRequireDefault(_mehO);
 
+	var _gamepad = __webpack_require__(505);
+
+	var _gamepad2 = _interopRequireDefault(_gamepad);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -62812,56 +62816,64 @@
 	                null,
 	                _react2.default.createElement(
 	                  'tr',
-	                  { style: { background: "rgba(0,0,0,0.5)", color: '#fff' } },
+	                  { style: { background: "rgba(0,0,0,0.5)", color: "#fff" } },
 	                  _react2.default.createElement(
 	                    'th',
-	                    { style: { width: '30px', textAlign: 'right' } },
+	                    { style: { width: "30px", textAlign: "right" } },
 	                    'rank'
 	                  ),
 	                  _react2.default.createElement(
 	                    'th',
-	                    { style: { minWidth: '350px' } },
+	                    { style: { minWidth: "350px", textAlign: 'center' }, colSpan: '2' },
 	                    'team'
 	                  ),
 	                  _react2.default.createElement(
 	                    'th',
-	                    { style: { textAlign: 'center', background: 'green', color: '#fff' } },
+	                    {
+	                      style: {
+	                        textAlign: "center",
+	                        background: "green",
+	                        color: "#fff"
+	                      }
+	                    },
 	                    'poin'
 	                  ),
 	                  _react2.default.createElement(
 	                    'th',
-	                    { style: { textAlign: 'center', background: '#2780E3' } },
+	                    {
+	                      style: { textAlign: "center", background: "#2780E3" }
+	                    },
 	                    'selisih'
 	                  ),
 	                  _react2.default.createElement(
 	                    'th',
-	                    { style: { background: 'orange' } },
+	                    { style: { background: "orange" } },
 	                    'gol'
 	                  ),
 	                  _react2.default.createElement(
 	                    'th',
-	                    null,
+	                    { style: { background: "red" } },
 	                    'bobol'
 	                  ),
 	                  _react2.default.createElement('th', null),
 	                  _react2.default.createElement(
 	                    'th',
-	                    { style: { textAlign: 'center' } },
-	                    _react2.default.createElement(_playCircle2.default, null)
+	                    { style: { textAlign: "center", background: "#2780E3" } },
+	                    _react2.default.createElement(_gamepad2.default, null)
 	                  ),
 	                  _react2.default.createElement(
 	                    'th',
-	                    { style: { textAlign: 'center', color: "#2880E3", fontWeight: 'bold' } },
+	                    { style: { textAlign: "center", background: "#018000", fontWeight: "bold" } },
 	                    _react2.default.createElement(_smileO2.default, null)
 	                  ),
 	                  _react2.default.createElement(
 	                    'th',
-	                    { style: { textAlign: 'center' } },
+	                    { style: { textAlign: "center", background: 'orange' } },
 	                    _react2.default.createElement(_mehO2.default, null)
 	                  ),
 	                  _react2.default.createElement(
 	                    'th',
-	                    { style: { textAlign: 'center', color: "red" } },
+	                    { style: { textAlign: "center", background: "red" } },
 	                    _react2.default.createElement(_frownO2.default, null)
 	                  )
 	                )
@@ -62872,11 +62884,16 @@
 	                teams.map(function (team, index) {
 	                  return _react2.default.createElement(
 	                    'tr',
-	                    { key: index, style: index < 4 ? { background: 'rgba(144, 238, 144, 0.5)' } : {} },
+	                    { key: index, style: index < 4 ? { background: "rgba(144, 238, 144, 0.5)" } : {} },
 	                    _react2.default.createElement(
 	                      'td',
-	                      { style: { textAlign: 'right' } },
+	                      { style: { textAlign: "right" } },
 	                      index + 1
+	                    ),
+	                    _react2.default.createElement(
+	                      'td',
+	                      { style: { width: "50px" } },
+	                      _react2.default.createElement('img', { width: '45px', src: team.logo_url, alt: 'logo tim' })
 	                    ),
 	                    _react2.default.createElement(
 	                      'td',
@@ -62885,43 +62902,43 @@
 	                    ),
 	                    _react2.default.createElement(
 	                      'td',
-	                      { style: { textAlign: 'center' } },
+	                      { style: { textAlign: "center" } },
 	                      team.points
 	                    ),
 	                    _react2.default.createElement(
 	                      'td',
-	                      { style: { textAlign: 'center' } },
+	                      { style: { textAlign: "center" } },
 	                      parseInt(team.goal) - parseInt(team.goaled)
 	                    ),
 	                    _react2.default.createElement(
 	                      'td',
-	                      { style: { textAlign: 'center' } },
+	                      { style: { textAlign: "center" } },
 	                      team.goal
 	                    ),
 	                    _react2.default.createElement(
 	                      'td',
-	                      { style: { textAlign: 'center' } },
+	                      { style: { textAlign: "center" } },
 	                      team.goaled
 	                    ),
-	                    _react2.default.createElement('td', { style: { background: 'rgba(0,0,0,0.5)' } }),
+	                    _react2.default.createElement('td', { style: { background: "rgba(0,0,0,0.5)" } }),
 	                    _react2.default.createElement(
 	                      'td',
-	                      { style: { textAlign: 'center' } },
+	                      { style: { textAlign: "center" } },
 	                      team.play
 	                    ),
 	                    _react2.default.createElement(
 	                      'td',
-	                      { style: { textAlign: 'center' } },
+	                      { style: { textAlign: "center" } },
 	                      team.win
 	                    ),
 	                    _react2.default.createElement(
 	                      'td',
-	                      { style: { textAlign: 'center' } },
+	                      { style: { textAlign: "center" } },
 	                      team.draw
 	                    ),
 	                    _react2.default.createElement(
 	                      'td',
-	                      { style: { textAlign: 'center' } },
+	                      { style: { textAlign: "center" } },
 	                      team.lost
 	                    )
 	                  );
@@ -69374,6 +69391,43 @@
 	}).call(typeof global !== undefined ? global : typeof self !== undefined ? self : typeof window !== undefined ? window : {});
 	module.exports = firebase.messaging;
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ }),
+/* 505 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactIconBase = __webpack_require__(458);
+
+	var _reactIconBase2 = _interopRequireDefault(_reactIconBase);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var FaGamepad = function FaGamepad(props) {
+	    return _react2.default.createElement(
+	        _reactIconBase2.default,
+	        _extends({ viewBox: '0 0 40 40' }, props),
+	        _react2.default.createElement(
+	            'g',
+	            null,
+	            _react2.default.createElement('path', { d: 'm17.3 24v-2.7q0-0.3-0.2-0.4t-0.5-0.2h-4v-4q0-0.3-0.2-0.5t-0.4-0.2h-2.7q-0.3 0-0.5 0.2t-0.2 0.5v4h-3.9q-0.3 0-0.5 0.1t-0.2 0.5v2.7q0 0.3 0.2 0.5t0.5 0.2h3.9v3.9q0 0.3 0.2 0.5t0.5 0.2h2.7q0.3 0 0.4-0.2t0.2-0.5v-3.9h4q0.3 0 0.5-0.2t0.2-0.5z m11.9 1.3q0-1.1-0.7-1.9t-1.9-0.7-1.9 0.7-0.8 1.9 0.8 1.9 1.9 0.8 1.9-0.8 0.7-1.9z m5.4-5.3q0-1.1-0.8-1.9t-1.9-0.8-1.9 0.8-0.8 1.9 0.8 1.9 1.9 0.8 1.9-0.8 0.8-1.9z m5.3 2.7q0 4.4-3.1 7.5t-7.6 3.1q-4 0-7-2.7h-4.6q-3 2.7-7 2.7-4.4 0-7.5-3.1t-3.1-7.5 3.1-7.6 7.5-3.1h18.6q4.4 0 7.6 3.1t3.1 7.6z' })
+	        )
+	    );
+	};
+
+	exports.default = FaGamepad;
+	module.exports = exports['default'];
 
 /***/ })
 /******/ ]);

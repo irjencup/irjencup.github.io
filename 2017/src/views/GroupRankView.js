@@ -5,6 +5,7 @@ import FrownIcon from "react-icons/lib/fa/frown-o";
 import SmileIcon from "react-icons/lib/fa/smile-o";
 import PlayIcon from "react-icons/lib/fa/play-circle";
 import MehIcon from "react-icons/lib/fa/meh-o";
+import GamepadIcon from "react-icons/lib/fa/gamepad";
 
 export default class GroupRankView extends React.Component {
   constructor(props){
@@ -133,46 +134,77 @@ export default class GroupRankView extends React.Component {
     if(!teams.length){
       return <div className="container"><Loading></Loading></div>
     }
-    return (<div>
-      <PageWrapperFront title={<div><RankIcon/> klasemen</div>}>
-        <div className="col-md-12">
-          <table className="table table-bordered">
-            <thead>
-              <tr style={{background: "rgba(0,0,0,0.5)", color: '#fff'}}>
-                <th style={{width: '30px', textAlign: 'right'}}>rank</th>
-                <th style={{minWidth: '350px'}}>team</th>
-                <th style={{textAlign: 'center', background: 'green', color: '#fff'}}>poin</th>
-                <th style={{textAlign: 'center', background: '#2780E3'}}>selisih</th>
-                <th style={{background: 'orange'}}>gol</th>
-                <th>bobol</th>
-                <th></th>
-                <th style={{textAlign: 'center'}}><PlayIcon/></th>
-                <th style={{textAlign: 'center', color: "#2880E3", fontWeight: 'bold'}}><SmileIcon/></th>
-                <th style={{textAlign: 'center'}}><MehIcon/></th>
-                <th style={{textAlign: 'center', color: "red"}}><FrownIcon/></th>
-              </tr>
-            </thead>
-            <tbody>
-              {teams.map((team, index)=>{
-                return <tr key={index} style={index < 4 ? {background: 'rgba(144, 238, 144, 0.5)'} :{}}>
-                    <td style={{textAlign: 'right'}}>{index+1}</td>
-                    <td>{team.officialname}</td>
-                    <td style={{textAlign: 'center'}}>{team.points}</td>
-                    <td style={{textAlign: 'center'}}>{parseInt(team.goal) - parseInt(team.goaled)}</td>
-                    <td style={{textAlign: 'center'}}>{team.goal}</td>
-                    <td style={{textAlign: 'center'}}>{team.goaled}</td>
-                    <td style={{background: 'rgba(0,0,0,0.5)'}}></td>
-                    <td style={{textAlign: 'center'}}>{team.play}</td>
-                    <td style={{textAlign: 'center'}}>{team.win}</td>
-                    <td style={{textAlign: 'center'}}>{team.draw}</td>
-                    <td style={{textAlign: 'center'}}>{team.lost}</td>
+    return <div>
+        <PageWrapperFront title={<div>
+              <RankIcon /> klasemen
+            </div>}>
+          <div className="col-md-12">
+            <table className="table table-bordered">
+              <thead>
+                <tr style={{ background: "rgba(0,0,0,0.5)", color: "#fff" }}>
+                  <th style={{ width: "30px", textAlign: "right" }}>
+                    rank
+                  </th>
+                  <th style={{ minWidth: "350px", textAlign: 'center'}} colSpan="2">
+                    team
+                  </th>
+                  <th
+                    style={{
+                      textAlign: "center",
+                      background: "green",
+                      color: "#fff"
+                    }}
+                  >
+                    poin
+                  </th>
+                  <th
+                    style={{ textAlign: "center", background: "#2780E3" }}
+                  >
+                    selisih
+                  </th>
+                  <th style={{ background: "orange" }}>gol</th>
+                  <th style={{background: "red"}}>bobol</th>
+                  <th />
+                  <th style={{ textAlign: "center",background: "#2780E3" }}>
+                    <GamepadIcon />
+                  </th>
+                  <th style={{ textAlign: "center",  background: "#018000" , fontWeight: "bold" }}>
+                    <SmileIcon />
+                  </th>
+                  <th style={{ textAlign: "center", background: 'orange' }}>
+                    <MehIcon />
+                  </th>
+                  <th style={{ textAlign: "center", background: "red" }}>
+                    <FrownIcon />
+                  </th>
                 </tr>
-              })}
-            </tbody>
-          </table>
-        </div>
-      </PageWrapperFront>
-    </div>);
+              </thead>
+              <tbody>
+                {teams.map((team, index) => {
+                  return <tr key={index} style={index < 4 ? { background: "rgba(144, 238, 144, 0.5)" } : {}}>
+                      <td style={{ textAlign: "right" }}>{index + 1}</td>
+                      <td style={{width: "50px"}}>
+                        <img width="45px" src={team.logo_url} alt="logo tim" />
+                      </td>
+                      <td>{team.officialname}</td>
+                      <td style={{ textAlign: "center" }}>{team.points}</td>
+                      <td style={{ textAlign: "center" }}>
+                        {parseInt(team.goal) - parseInt(team.goaled)}
+                      </td>
+                      <td style={{ textAlign: "center" }}>{team.goal}</td>
+                      <td style={{ textAlign: "center" }}>{team.goaled}</td>
+                      <td style={{ background: "rgba(0,0,0,0.5)" }} />
+                      <td style={{ textAlign: "center" }}>{team.play}</td>
+                      <td style={{ textAlign: "center" }}>{team.win}</td>
+                      <td style={{ textAlign: "center" }}>{team.draw}</td>
+                      <td style={{ textAlign: "center" }}>{team.lost}</td>
+                    </tr>;
+                })}
+              </tbody>
+            </table>
+          </div>
+        </PageWrapperFront>
+      </div>;
   }
 }
 
