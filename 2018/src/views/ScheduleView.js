@@ -193,8 +193,8 @@ export default class ScheduleView extends React.Component {
           <div onChange={this.changeMatchType.bind(this)} className="col-md-4 col-md-push-4">
             <select className="form-control" id="">
               <option value="groupa">Grup 1</option>
-              <option value="groupb">Grub 2</option>
-              <option value="groupc">Grub 3</option>
+              <option value="groupb">Grup 2</option>
+              <option value="groupc">Grup 3</option>
               <option value="perempatfinal">Perempat Final</option>
               <option value="semifinal">Semi Final</option>
               <option value="finalmatch">Final</option>
